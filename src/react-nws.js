@@ -19,10 +19,10 @@ var forecastToArray = function(forecast) {
 
 var Forecast = React.createClass({
   loadForecastFromServer: function() {
-    var url = 'http://forecast.weather.gov/MapClick.php?lat=' + this.props.lat + '&lon=' + this.props.lon + '&FcstType=json';
+    var url = 'http://forecast.weather.gov/MapClick.php?lat=' + this.props.lat + '&lon=' + this.props.lon + '&FcstType=json&callback=nwsresponse';
     $.ajax({
       url: url,
-      dataType: 'json',
+      dataType: 'jsonp',
       cache: false,
       success: function(data) {
         this.setState({
