@@ -48,20 +48,20 @@ var Forecast = React.createClass({
     if (!this.state.data) {
       return React.createElement(
         'div',
-        { 'class': 'forecastLoading' },
+        { className: 'forecastLoading' },
         'Loading data from NWS'
       );
     } else if (!this.state.data.productionCenter) {
       console.log(this.state.data);
       return React.createElement(
         'div',
-        { 'class': 'forecastFailure' },
+        { className: 'forecastFailure' },
         'Data not loaded correctly'
       );
     }
     return React.createElement(
       'div',
-      { 'class': 'forecastResult' },
+      { className: 'forecastResult' },
       React.createElement(ForecastGraphicalList, { data: this.state.forecast })
     );
   }
@@ -91,21 +91,21 @@ var ForecastGraphicalPeriod = React.createClass({
     var tempClass = "temp temp-" + data.tempLabel;
     return React.createElement(
       'li',
-      { key: data.id },
+      { className: 'forecast-period', key: data.id },
       React.createElement(
         'p',
-        { 'class': 'period-name' },
+        { className: 'period-name' },
         data.startPeriodName
       ),
-      React.createElement('img', { 'class': 'forecast-icon', src: data.iconLink, alt: desc, title: desc }),
+      React.createElement('img', { className: 'forecast-icon', src: data.iconLink, alt: desc, title: desc }),
       React.createElement(
         'p',
-        { 'class': 'short-desc' },
+        { className: 'short-desc' },
         data.weather
       ),
       React.createElement(
         'p',
-        { 'class': tempClass },
+        { className: tempClass },
         data.tempLabel,
         ': ',
         data.temperature,

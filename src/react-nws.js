@@ -45,16 +45,16 @@ var Forecast = React.createClass({
   render: function() {
     if ( !this.state.data ) {
       return (
-        <div class="forecastLoading">Loading data from NWS</div>
+        <div className="forecastLoading">Loading data from NWS</div>
       );
     } else if ( !this.state.data.productionCenter ) {
       console.log(this.state.data);
       return (
-        <div class="forecastFailure">Data not loaded correctly</div>
+        <div className="forecastFailure">Data not loaded correctly</div>
       );
     }
     return (
-      <div class="forecastResult">
+      <div className="forecastResult">
         <ForecastGraphicalList data={this.state.forecast} />
       </div>
     )
@@ -82,11 +82,11 @@ var ForecastGraphicalPeriod = React.createClass({
     var desc = data.startPeriodName + ": " + data.text;
     var tempClass = "temp temp-" + data.tempLabel;
     return (
-      <li key={data.id}>
-        <p class="period-name">{data.startPeriodName}</p>
-        <img class="forecast-icon" src={data.iconLink} alt={desc} title={desc} />
-        <p class="short-desc">{data.weather}</p>
-        <p class={tempClass}>{data.tempLabel}: {data.temperature} ºF</p>
+      <li className="forecast-period" key={data.id}>
+        <p className="period-name">{data.startPeriodName}</p>
+        <img className="forecast-icon" src={data.iconLink} alt={desc} title={desc} />
+        <p className="short-desc">{data.weather}</p>
+        <p className={tempClass}>{data.tempLabel}: {data.temperature} ºF</p>
       </li>
     )
   }
