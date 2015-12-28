@@ -55,7 +55,6 @@ var Forecast = React.createClass({
     }
     return (
       <div class="forecastResult">
-        <h1>Forecast loaded from {this.state.data.productionCenter}</h1>
         <ForecastGraphicalList data={this.state.forecast} />
       </div>
     )
@@ -66,7 +65,7 @@ var ForecastGraphicalList = React.createClass({
   render: function() {
     var periodNodes = this.props.data.map(function(data) {
       return (
-        <li key={data.id}>{data.startPeriodName}</li>
+        <ForecastGraphicalPeriod data={data} key={data.id}/>
       )
     });
     return (
@@ -76,6 +75,22 @@ var ForecastGraphicalList = React.createClass({
     )
   }
 });
+
+var ForecastGraphicalPeriod = React.createClass({
+  render: function() {
+    var data = this.props.data;
+    var desc = data.startPeriodName + ": " + data.text;
+    var tempClass = "temp temp-" + data.tempLabel;
+    return (
+      <li key={data.id}>
+        <p class="period-name">{data.startPeriodName}</p>
+        <img class="forecast-icon" src={data.iconLink} alt={desc} title={desc} />
+        <p class="short-desc">{data.weather}</p>
+        <p class={tempClass}>{data.tempLabel}: {data.temperature} ºF</p>
+      </li>
+    )
+  }
+})
 
 React.render(
   <Forecast lat="44.098601844800385" lon="-70.69908771582459" pollInterval={200000}/>,
