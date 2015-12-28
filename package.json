@@ -1,0 +1,26 @@
+{
+  "name": "nws_json_react",
+  "version": "0.1.0",
+  "description": "React components to display National Weather Service JSON Feeds",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abkfenris/nws_json_react.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abkfenris/nws_json_react/issues"
+  },
+  "homepage": "https://github.com/abkfenris/nws_json_react#readme",
+  "dependencies": {
+    "rc-tools": "^4.4.2",
+    "react": "^0.14.3"
+  }
+}

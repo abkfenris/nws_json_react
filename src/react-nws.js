@@ -45,12 +45,12 @@ var Forecast = React.createClass({
   render: function() {
     if ( !this.state.data ) {
       return (
-        <h1>Loading data from NWS</h1>
+        <div class="forecastLoading">Loading data from NWS</div>
       );
     } else if ( !this.state.data.productionCenter ) {
       console.log(this.state.data);
       return (
-        <h1>Data not loaded correctly</h1>
+        <div class="forecastFailure">Data not loaded correctly</div>
       );
     }
     return (
